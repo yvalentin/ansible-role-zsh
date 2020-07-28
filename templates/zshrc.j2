@@ -4,7 +4,7 @@
 
 export TERM="{{ zsh_term }}"
 export EDITOR="{{ zsh_editor }}"
-export PATH="{{ zsh_path | join(":") }}"
+export PATH="$PATH:{{ zsh_path | join(":") }}"
 
 HIST_STAMPS="{{ zsh_hist_stamps }}"
 UPDATE_ZSH_DAYS="{{ zsh_update_interval }}"
@@ -111,6 +111,8 @@ SPACESHIP_DIR_TRUNC=0
 
 # Aliases
 alias suser='su -'
+
+{% if zsh_load_etc_profile %}source /etc/profile{% endif %}
 
 # user configs
 [[ -r /etc/zsh/zshrc.local ]] && source /etc/zsh/zshrc.local
