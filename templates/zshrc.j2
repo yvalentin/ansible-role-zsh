@@ -95,7 +95,7 @@ export FZF_TMUX=0
 export FZF_DEFAULT_OPTS="{{ zsh_fzf_default_opts }}"
 
 # fzf-widgets: fzf-change-reset-dir
-{% if zsh_version is version('5.0', '>=') -%}
+{% if zsh_version is version_compare('5.0', '>=') -%}
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 {% endif %}
@@ -108,11 +108,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240" # gray highlight
 
 # SpaceShip Theme
 SPACESHIP_DIR_TRUNC=0
-
-# Aliases
-alias suser='su -'
-
-{% if zsh_load_etc_profile %}source /etc/profile{% endif %}
 
 # user configs
 [[ -r /etc/zsh/zshrc.local ]] && source /etc/zsh/zshrc.local
